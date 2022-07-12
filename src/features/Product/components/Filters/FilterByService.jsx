@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
       marginRight: "8px",
     },
   },
+  list: {
+    listStyle: "none",
+    padding: "0",
+  },
 }));
 
 function FilterByService({ filters, onChange }) {
@@ -34,8 +38,11 @@ function FilterByService({ filters, onChange }) {
   return (
     <Box className={classes.root}>
       <Typography variant="subtitle2">CHỌN DỊCH VỤ</Typography>
-      <ul>
-        {["isPromotion", "isFreeShip"].map((service) => {
+      <ul className={classes.list}>
+        {[
+          { key: "isPromotion", value: "Có khuyến mãi" },
+          { key: "isFreeShip", value: "Miễn phí vận chuyển" },
+        ].map((service) => {
           return (
             <li key={service}>
               <FormControlLabel
@@ -43,12 +50,12 @@ function FilterByService({ filters, onChange }) {
                   <Checkbox
                     checked={Boolean(filters[service])}
                     color="primary"
-                    name={service}
+                    name={service.key}
                     inputProps={{ "aria-label": "secondary checkbox" }}
                     onChange={handleChange}
                   />
                 }
-                label={service}
+                label={service.value}
               />
             </li>
           );

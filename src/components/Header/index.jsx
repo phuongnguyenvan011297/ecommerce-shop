@@ -72,7 +72,6 @@ export default function Header() {
   };
 
   const cartItemCount = useSelector(cartItemCountSelector);
-  console.log(cartItemCount);
 
   return (
     <div className={classes.root}>

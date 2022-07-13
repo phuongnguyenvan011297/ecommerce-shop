@@ -40,12 +40,13 @@ function QuantityField(props) {
         render={({ onChange, onBlur, value, name }) => (
           <Box className={classes.box}>
             <IconButton
-              onClick={() =>
+              onClick={() => {
                 setValue(
                   name,
                   Number.parseInt(value) > 1 ? Number.parseInt(value) - 1 : 1
-                )
-              }
+                );
+                props?.submitCallback();
+              }}
             >
               <RemoveCircleOutline />
             </IconButton>
@@ -63,12 +64,13 @@ function QuantityField(props) {
             />
 
             <IconButton
-              onClick={() =>
+              onClick={() => {
                 setValue(
                   name,
                   Number.parseInt(value) ? Number.parseInt(value) + 1 : 1
-                )
-              }
+                );
+                props?.submitCallback();
+              }}
             >
               <AddCircleOutline />
             </IconButton>

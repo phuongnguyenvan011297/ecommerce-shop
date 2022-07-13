@@ -61,13 +61,6 @@ function FilterByPrice({ onChange }) {
       <Button variant="outlined" color="primary" onClick={handleSubmit}>
         Áp dụng
       </Button>
-      <Button
-        variant="outlined"
-        color="primary"
-        onClick={() => setValues({ salePrice_gte: 0, salePrice_lte: 0 })}
-      >
-        Reset
-      </Button>
     </Box>
   );
 }
